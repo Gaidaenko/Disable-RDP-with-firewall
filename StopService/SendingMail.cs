@@ -30,7 +30,6 @@ namespace StopService
                 smtp.Credentials = new NetworkCredential("appstopwork@yahoo.com", "PrivatPassword");
                 smtp.EnableSsl = true;
                 smtp.Send(message);
-                Console.Read();
                 return;
             }
             catch (Exception e)
@@ -60,7 +59,6 @@ namespace StopService
                 smtp.Credentials = new NetworkCredential("appstopwork@yahoo.com", "PrivatPassword");
                 smtp.EnableSsl = true;
                 smtp.Send(message);
-                Console.Read();
                 return;
             }
             catch (Exception e)
@@ -69,7 +67,6 @@ namespace StopService
                 Console.WriteLine("УВЕДОМЛЕНИЕ АДМИНИСТРАТОРУ НЕ ОТПРАВЛЕНО!");
                 Console.ReadLine();
                 return;
-
             }
         }
     }

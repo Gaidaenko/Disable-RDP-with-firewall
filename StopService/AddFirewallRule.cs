@@ -14,10 +14,10 @@ namespace StopService
         SendingMail sendingMail = new SendingMail();
         public void addRule()
         {
-
             try
             {
-                var rules = FirewallManager.Instance.CreatePortRule(FirewallProfiles.Private, "TestUser_" + Environment.UserName, FirewallAction.Block, 3389, FirewallProtocol.TCP);
+                var rules = FirewallManager.Instance.CreatePortRule(FirewallProfiles.Private, "TestUser_"
+                          + Environment.UserName, FirewallAction.Block, 3389, FirewallProtocol.TCP);
 
                 rules.Direction = FirewallDirection.Inbound;
                 FirewallManager.Instance.Rules.Add(rules);
@@ -30,10 +30,6 @@ namespace StopService
                 sendingMail.SendError();
                 return;
             }
-
-
-
-
 
             /* string firewallAddRule = $"netsh advfirewall firewall add rule name=\"{Environment.UserName}_ОТКЛЮЧИЛ ДОСТУП К СЕРВЕРУ!\" protocol=TCP localport=3389 action=block dir=IN";
 

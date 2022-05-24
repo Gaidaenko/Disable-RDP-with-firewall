@@ -9,8 +9,6 @@ namespace StopService
 {    
     public class EvetntLogStatus
     {
-
-        SendingMail sending = new SendingMail();
         public  void EventLogStop()
         {
             string UserID = Environment.UserName;
@@ -24,7 +22,6 @@ namespace StopService
                 eventLog.Source = "AppStopWork"; 
                 eventLog.WriteEntry(Event, EventLogEntryType.Warning);
                 Console.WriteLine("Действие занесено в журнал событий Windows, в раздел App, и отправлено на почту администратору.");
-                sending.SendStop();
                 return;
             }
         }
@@ -42,7 +39,7 @@ namespace StopService
                 eventLog.WriteEntry(Event, EventLogEntryType.Error);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Действие занесено в журнал событий Windows, в раздел App, и отправлено на почту администратору. Имя пользователя: {0}", UserID);
-                sending.SendStop();
+                Console.ReadKey();
             }
         }
     }
